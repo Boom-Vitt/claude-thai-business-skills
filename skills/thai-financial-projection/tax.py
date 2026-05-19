@@ -79,10 +79,14 @@ def sso_annual_employer(employees: list[D]) -> D:
 
 
 def vat_status(annual_revenue: D) -> str:
-    """ตรวจว่ารายได้เกิน VAT threshold หรือยัง."""
-    if annual_revenue >= VAT_THRESHOLD:
+    """ตรวจว่ารายได้เกิน VAT threshold หรือยัง.
+
+    ตามมาตรา 81/1 ประมวลรัษฎากร: ต้องจดเมื่อรายรับ "เกิน" 1.8M (strict >),
+    ที่ 1.8M พอดียังไม่ trigger.
+    """
+    if annual_revenue > VAT_THRESHOLD:
         return f"ต้องจด VAT — รายได้ {annual_revenue:,} เกิน {VAT_THRESHOLD:,}"
-    return f"ยังไม่ต้องจด VAT — รายได้ {annual_revenue:,} ยังไม่ถึง {VAT_THRESHOLD:,}"
+    return f"ยังไม่ต้องจด VAT — รายได้ {annual_revenue:,} ยังไม่เกิน {VAT_THRESHOLD:,}"
 
 
 def _self_test() -> None:
@@ -118,6 +122,11 @@ def _self_test() -> None:
     s = vat_status(D("2400000"))
     assert "ต้องจด" in s, f"vat status unexpected: {s}"
     print(f"  ✓ VAT @2.4M revenue → {s}")
+
+    # case 6b: VAT boundary — exactly 1.8M is NOT a trigger (มาตรา 81/1: "เกิน" = strict >)
+    s_boundary = vat_status(VAT_THRESHOLD)
+    assert "ยังไม่ต้อง" in s_boundary, f"1.8M boundary should not trigger: {s_boundary}"
+    print(f"  ✓ VAT @1.8M exactly → {s_boundary}")
 
     # case 7: loss → no tax
     assert sme_corporate_tax(D("-50000"), D("1000000"), D("5000000")) == D("0")
