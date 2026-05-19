@@ -18,19 +18,21 @@ if [[ $# -eq 0 ]]; then
     echo "  ✓ $name"
   done
 else
+  # Pre-validate ทุก args ก่อนแตะ $TARGET — กัน partial install ถ้ามี arg ผิดในกลุ่ม
+  # ทุก user-supplied name ต้องผ่าน guard นี้
   for name in "$@"; do
-    # ทุก user-supplied name ต้องผ่าน guard นี้ก่อนแตะ $TARGET
     if [[ ${#name} -gt 64 || ! "$name" =~ ^thai-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
       echo "  ✗ '$name' — ต้องเป็น thai-<word>(-<word>)* (a-z0-9), ≤ 64 ตัวอักษร (กัน path traversal)" >&2
       exit 1
     fi
-    src="$REPO_ROOT/skills/$name"
-    if [[ ! -d "$src" ]]; then
+    if [[ ! -d "$REPO_ROOT/skills/$name" ]]; then
       echo "  ✗ $name — ไม่พบ skill (มีอยู่: $(ls "$REPO_ROOT/skills" | tr '\n' ' '))" >&2
       exit 1
     fi
+  done
+  for name in "$@"; do
     rm -rf "$TARGET/$name"
-    cp -R "$src" "$TARGET/$name"
+    cp -R "$REPO_ROOT/skills/$name" "$TARGET/$name"
     echo "  ✓ $name"
   done
 fi
