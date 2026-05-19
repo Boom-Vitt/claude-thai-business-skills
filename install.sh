@@ -19,8 +19,9 @@ if [[ $# -eq 0 ]]; then
   done
 else
   for name in "$@"; do
-    if [[ ! "$name" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
-      echo "  ✗ '$name' — ชื่อ skill ต้องเป็น [a-z0-9-] เท่านั้น (กัน path traversal)" >&2
+    # ทุก user-supplied name ต้องผ่าน guard นี้ก่อนแตะ $TARGET
+    if [[ ${#name} -gt 64 || ! "$name" =~ ^thai-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+      echo "  ✗ '$name' — ต้องเป็น thai-<word>(-<word>)* (a-z0-9), ≤ 64 ตัวอักษร (กัน path traversal)" >&2
       exit 1
     fi
     src="$REPO_ROOT/skills/$name"

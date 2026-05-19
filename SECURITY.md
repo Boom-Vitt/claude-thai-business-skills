@@ -10,7 +10,7 @@
 
 **ไม่มี** postinstall script, ไม่มี `curl`/`sudo`, ไม่ดาวน์โหลดอะไรเพิ่มเวลาติดตั้ง. ถอนการติดตั้ง: ลบ folder `~/.claude/skills/thai-*` ที่ไม่ต้องการได้โดยตรง.
 
-`./install.sh <name>` ตรวจชื่อด้วย regex `^[a-z0-9][a-z0-9-]*$` ก่อนเขียน — กัน path traversal เช่น `./install.sh ../docs`.
+`./install.sh <name>` ตรวจชื่อด้วย regex `^thai-[a-z0-9]+(-[a-z0-9]+)*$` (≤ 64 ตัวอักษร) ก่อนเขียน — กัน path traversal เช่น `./install.sh ../docs`, กัน trailing/double hyphen, และกันชื่อยาวผิดปกติ.
 
 ## รายงานช่องโหว่
 
