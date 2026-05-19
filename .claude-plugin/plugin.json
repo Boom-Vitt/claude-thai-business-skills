@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.claude.com/schemas/claude-plugin.json",
+  "name": "claude-thai-business-skills",
+  "version": "0.1.0",
+  "description": "12 Claude Code skills ที่ปรึกษาธุรกิจสำหรับ SME ไทย — ตั้งราคา, unit economics, ภาษี SME, จดทะเบียน, channel mix, KOL deal, landed cost, cashflow",
+  "author": {
+    "name": "Vittawat (boombignose)",
+    "url": "https://github.com/Boom-Vitt"
+  },
+  "homepage": "https://github.com/Boom-Vitt/claude-thai-business-skills",
+  "repository": "https://github.com/Boom-Vitt/claude-thai-business-skills",
+  "license": "MIT",
+  "keywords": [
+    "thai",
+    "thailand",
+    "sme",
+    "business-consulting",
+    "claude-code",
+    "claude-skills",
+    "agent-skills",
+    "unit-economics",
+    "pricing",
+    "fundraising",
+    "go-to-market",
+    "tax-th",
+    "promptpay",
+    "shopee",
+    "lazada",
+    "tiktok-shop",
+    "line-oa"
+  ],
+  "skills": [
+    "thai-sme-canvas",
+    "thai-market-sizing",
+    "thai-competitor-scan",
+    "thai-pricing-strategy",
+    "thai-unit-economics",
+    "thai-financial-projection",
+    "thai-business-registration",
+    "thai-vc-fundraising",
+    "thai-channel-strategy",
+    "thai-influencer-deal",
+    "thai-sourcing-landed-cost",
+    "thai-cashflow-survival"
+  ]
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-label="claude-thai-business-skills">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F1E1B"/>
+      <stop offset="1" stop-color="#27272A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D97757"/>
+      <stop offset="1" stop-color="#E8A87C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="280" rx="14" fill="url(#bg)"/>
+  <g transform="translate(64,64)">
+    <text x="0" y="0" font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif"
+          font-size="44" font-weight="800" fill="#F4F4F5" letter-spacing="-0.02em">
+      claude-thai-business-skills
+    </text>
+    <text x="0" y="44" font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif"
+          font-size="22" font-weight="500" fill="url(#accent)" letter-spacing="-0.01em">
+      12 skills ที่ปรึกษาธุรกิจสำหรับ SME ไทย
+    </text>
+    <text x="0" y="84" font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', sans-serif"
+          font-size="15" font-weight="400" fill="#A8A29E" letter-spacing="0">
+      Pricing waterfall · Unit economics · SME tax tier · VC map · Channel mix · Landed cost · Cashflow
+    </text>
+
+    <g transform="translate(0,124)" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace"
+       font-size="13" fill="#A8A29E">
+      <text x="0" y="0">$ /plugin marketplace add Boom-Vitt/claude-thai-business-skills</text>
+      <text x="0" y="22" fill="#D97757">$ /plugin install thai-pricing-strategy</text>
+    </g>
+  </g>
+
+  <g transform="translate(960,140)" opacity="0.9">
+    <circle cx="0" cy="0" r="64" fill="none" stroke="#D97757" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle"
+          font-family="ui-sans-serif, system-ui, sans-serif" font-size="44"
+          font-weight="800" fill="#D97757">12</text>
+    <text x="0" y="40" text-anchor="middle"
+          font-family="ui-sans-serif, system-ui, sans-serif" font-size="11"
+          font-weight="500" fill="#A8A29E" letter-spacing="0.12em">SKILLS</text>
+  </g>
+</svg>

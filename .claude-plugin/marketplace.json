@@ -1,0 +1,90 @@
+{
+  "$schema": "https://docs.claude.com/schemas/claude-marketplace.json",
+  "name": "claude-thai-business-skills",
+  "displayName": "Thai SME Business Consulting Skills",
+  "description": "12 ทักษะที่ปรึกษาธุรกิจ SME ไทย — ตัวเลข/ภาษี/marketplace fee จริงปี 2026",
+  "author": "Vittawat (boombignose)",
+  "license": "MIT",
+  "homepage": "https://github.com/Boom-Vitt/claude-thai-business-skills",
+  "plugins": [
+    {
+      "name": "claude-thai-business-skills",
+      "displayName": "Thai SME Consulting (Bundle)",
+      "description": "ทั้งชุด 12 skills",
+      "path": ".",
+      "type": "bundle"
+    },
+    {
+      "name": "thai-sme-canvas",
+      "displayName": "SME Business Model Canvas (TH)",
+      "description": "BMC แบบ SME ไทย — family-stakeholder, ทุนจดทะเบียน vs ทุนชำระ, MOU vs partner",
+      "path": "skills/thai-sme-canvas"
+    },
+    {
+      "name": "thai-market-sizing",
+      "displayName": "Market Sizing TH (NSO/BOT/DBD)",
+      "description": "TAM/SAM/SOM พร้อม source pointer แหล่งทางการไทย",
+      "path": "skills/thai-market-sizing"
+    },
+    {
+      "name": "thai-competitor-scan",
+      "displayName": "Competitor Scan (Porter 5F + DBD)",
+      "description": "Porter 5 Forces + วิธีดึงงบคู่แข่งจาก datawarehouse.dbd.go.th",
+      "path": "skills/thai-competitor-scan"
+    },
+    {
+      "name": "thai-pricing-strategy",
+      "displayName": "Pricing Strategy (Marketplace Waterfall)",
+      "description": "ตั้งราคา waterfall ต่อช่อง — Shopee/Lazada/Line Shop/TikTok Shop/หน้าร้าน",
+      "path": "skills/thai-pricing-strategy"
+    },
+    {
+      "name": "thai-unit-economics",
+      "displayName": "Unit Economics (CAC/LTV — TH 2026 Benchmarks)",
+      "description": "CAC/LTV/payback ด้วย benchmark Thai 2026: Meta, TikTok, LINE OA, KOL/KOC",
+      "path": "skills/thai-unit-economics"
+    },
+    {
+      "name": "thai-financial-projection",
+      "displayName": "3-Yr P&L + Cashflow (SME Tax Tier)",
+      "description": "P&L+cashflow ที่ถูก: SME tier 0/15/20%, VAT cycle, SSO 5%+5%, ภงด.50/51",
+      "path": "skills/thai-financial-projection"
+    },
+    {
+      "name": "thai-business-registration",
+      "displayName": "Business Registration Decision Tree",
+      "description": "ทะเบียนพาณิชย์ vs หจก. vs บริษัทจำกัด vs BOI — VAT/SSO trigger",
+      "path": "skills/thai-business-registration"
+    },
+    {
+      "name": "thai-vc-fundraising",
+      "displayName": "Thai VC Fundraising Map (2026)",
+      "description": "500 Global, AddVentures, Beacon VC, Krungsri Finnovate, SCB10X, KX, Bualuang — stage/check/thesis",
+      "path": "skills/thai-vc-fundraising"
+    },
+    {
+      "name": "thai-channel-strategy",
+      "displayName": "Channel Mix Strategy",
+      "description": "LINE OA / FB Shop / Shopee Mall / Lazada / TikTok Shop / offline — เลือกตาม AOV/repeat",
+      "path": "skills/thai-channel-strategy"
+    },
+    {
+      "name": "thai-influencer-deal",
+      "displayName": "Influencer/KOL Deal Structure (WHT-safe)",
+      "description": "ดีล KOL ถูกกฎหมาย: WHT 3/5/15%, talent fee vs affiliate share, contract",
+      "path": "skills/thai-influencer-deal"
+    },
+    {
+      "name": "thai-sourcing-landed-cost",
+      "displayName": "Sourcing Landed Cost (HS + FDA/TISI)",
+      "description": "นำเข้าจาก 1688/Alibaba — duty, VAT on CIF, FDA/TISI/มอก. flag",
+      "path": "skills/thai-sourcing-landed-cost"
+    },
+    {
+      "name": "thai-cashflow-survival",
+      "displayName": "90-Day Cashflow Survival Calendar",
+      "description": "90-day cashflow กับ timing ไทย: credit term, VAT refund, PND.1/SSO/ภงด.50/51",
+      "path": "skills/thai-cashflow-survival"
+    }
+  ]
+}
