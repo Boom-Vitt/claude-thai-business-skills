@@ -19,6 +19,10 @@ if [[ $# -eq 0 ]]; then
   done
 else
   for name in "$@"; do
+    if [[ ! "$name" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+      echo "  ✗ '$name' — ชื่อ skill ต้องเป็น [a-z0-9-] เท่านั้น (กัน path traversal)" >&2
+      exit 1
+    fi
     src="$REPO_ROOT/skills/$name"
     if [[ ! -d "$src" ]]; then
       echo "  ✗ $name — ไม่พบ skill (มีอยู่: $(ls "$REPO_ROOT/skills" | tr '\n' ' '))" >&2

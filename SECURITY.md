@@ -1,5 +1,17 @@
 # Security & Disclaimer
 
+## ขอบเขตการติดตั้ง / Install scope
+
+ทั้งสองวิธีติดตั้ง — `/plugin install` และ `./install.sh` — **เขียนไฟล์เฉพาะใน `~/.claude/skills/<thai-*>`** เท่านั้น. ไม่แตะ:
+
+- skills อื่นของ user (ทุกตัวมี prefix `thai-` ไม่ชน namespace กับใคร)
+- `~/.claude/settings.json` / hooks / commands / agents
+- ระบบไฟล์อื่นนอก `~/.claude/skills/`
+
+**ไม่มี** postinstall script, ไม่มี `curl`/`sudo`, ไม่ดาวน์โหลดอะไรเพิ่มเวลาติดตั้ง. ถอนการติดตั้ง: ลบ folder `~/.claude/skills/thai-*` ที่ไม่ต้องการได้โดยตรง.
+
+`./install.sh <name>` ตรวจชื่อด้วย regex `^[a-z0-9][a-z0-9-]*$` ก่อนเขียน — กัน path traversal เช่น `./install.sh ../docs`.
+
 ## รายงานช่องโหว่
 
 ถ้าเจอช่องโหว่ที่กระทบความปลอดภัยของ user (เช่น helper code ที่ leak input, prompt injection ที่ทำให้ Claude แนะนำสิ่งที่ผิดกฎหมาย) — **อย่าเปิด public issue**.
