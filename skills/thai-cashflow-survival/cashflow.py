@@ -81,11 +81,7 @@ def standard_monthly_events(
         events.append(CashEvent(next_15, f"VAT (ภพ.30) M{m+1}", -vat_payable))
 
         # supplier payment for COGS of this month after credit_days
-        supplier_pay_day = base + 30 + supplier_credit_days - 30  # paid next month
-        if supplier_credit_days <= 30:
-            supplier_pay_day = base + supplier_credit_days
-        else:
-            supplier_pay_day = base + supplier_credit_days
+        supplier_pay_day = base + supplier_credit_days
         events.append(
             CashEvent(supplier_pay_day, f"Supplier (COGS M{m+1})", -cogs_monthly)
         )
@@ -98,8 +94,9 @@ def build_90_day_calendar(
     events: list[CashEvent],
 ) -> CashflowSummary:
     """Roll forward 90 days, returning a summary."""
-    # sort events by day_offset (and outflows before inflows on same day for safety)
-    events_sorted = sorted(events, key=lambda e: (e.day_offset, -e.amount))
+    # sort events by day_offset; on the same day apply outflows before inflows
+    # for a conservative (pessimistic) low-balance estimate
+    events_sorted = sorted(events, key=lambda e: (e.day_offset, e.amount))
     balance = opening_balance
     low_balance = opening_balance
     low_day = 0
