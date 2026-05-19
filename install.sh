@@ -4,6 +4,7 @@
 #   ./install.sh                          # ติดตั้งทุก skill
 #   ./install.sh thai-pricing-strategy    # ติดตั้งเฉพาะตัว
 set -euo pipefail
+shopt -s nullglob  # empty skills/ glob expands to nothing instead of literal pattern
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
